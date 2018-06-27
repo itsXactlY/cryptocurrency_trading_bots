@@ -286,7 +286,7 @@ def bot():
         # if the position changed update the old entry price
         old_entry_price_adjusted = float(current_entry_price * (1 + (bitfinex_taker_fee / 100))) if next_position == 1 else float(current_entry_price * (1 - (bitfinex_taker_fee / 100)))
         # calculate fee expenses per trade (to have it available)
-        position_trading_fees = current_entry_price * (1 + ((bitfinex_taker_fee * amount_crypto) / 100))
+        position_trading_fees = current_entry_price * ((bitfinex_taker_fee * amount_crypto) / 100)
         print() # leave some space for nicely formatted output
     print(' --  Old ALMA: \t\t\t\t' + str(round(alma.iloc[-2][0], decimals)) + '\t' + str(symbol.split('/')[1]))
     print(' --  Current ALMA: \t\t\t' + str(round(alma.iloc[-1][0], decimals)) + '\t' + str(symbol.split('/')[1]))
