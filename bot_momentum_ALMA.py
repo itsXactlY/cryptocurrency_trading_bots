@@ -22,11 +22,11 @@ bitfinex = ccxt.bitfinex({
 #===== BOT PARAMETERS ===================================================================
 #========================================================================================
 disable_trading = True # if set to True trading is disabled (e.g. for testing)
-symbol = 'LTC/USD'
-timeframe = '5m' # see lines 58 - 67
+symbol = 'BTC/USD'
+timeframe = '12h' # see lines 58 - 67
 set_trailing_stop = True
 trailing_stop_pct = 3.0 # stop distance in percent (%)
-amount_usd_to_trade = 35
+amount_usd_to_trade = 50
 # ALMA parameters
 period_ALMA = 20
 offset_ALMA = 0.95
