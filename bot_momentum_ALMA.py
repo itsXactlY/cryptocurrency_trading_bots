@@ -23,7 +23,7 @@ bitfinex = ccxt.bitfinex({
 #========================================================================================
 disable_trading = True # if set to True trading is disabled (e.g. for testing)
 symbol = 'BTC/USD'
-timeframe = '12h' # see lines 58 - 67
+timeframe = '12h' # see lines 59 - 68
 set_trailing_stop = True
 trailing_stop_pct = 3.0 # stop distance in percent (%)
 amount_usd_to_trade = 50
@@ -41,12 +41,13 @@ exchange = 'bitfinex' # this bot is optimized for long/short trading USD pairs u
 api_cooldown = 5 # exchange API cooldown time in seconds
 length = int(np.ceil(period_ALMA * 1.1)) # length of the data to fetch from the exchange
 bitfinex_taker_fee = 0.2 # bitfinex taker fee in percent, used to calculate actual entry and exit prices
-amount_crypto = 0 # position size in respective cryptocurrency, calculated in line 212
+amount_crypto = 0 # position size in respective cryptocurrency, calculated in line 214
 loops_per_timeframe = 4 # how often to reevaluate the position within one timeframe
 current_position = 0 # current position
+current_entry_price = 0 # current entry price of position
 old_position = 0 # old position
-old_entry_price_adjusted = 0 # old/current entry price, used in log output, set in line 287
-next_position = 0 # netx position, set in line 124 or 127
+old_entry_price_adjusted = 0 # old/current entry price, used in log output, set in line 289
+next_position = 0 # netx position, set in line 126 or 129
 n_trades = 0 # counts how many trades have been done, used in log output
 cumulated_profit = 0 # adds up the adjusted profits, used in log output
 decimals = 4 # numbers behind decimal point when rounding
@@ -73,6 +74,7 @@ def bot():
     # globalize variables that are changed by the bot
     global amount_crypto
     global current_position
+    global current_entry_price
     global old_position
     global old_entry_price_adjusted
     global next_position
@@ -314,6 +316,3 @@ def run_bot():
 
 # function call which ultimately runs the bot
 run_bot()
-
-
-
